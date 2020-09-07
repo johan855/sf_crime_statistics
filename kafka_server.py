@@ -7,7 +7,7 @@ def run_kafka_server():
     input_file = "police-department-calls-for-service.json"
     producer = producer_server.ProducerServer(
         input_file=input_file,
-        topic="police.calls.service.",
+        topic="police.calls.service",
         bootstrap_servers=BOOTSTRAP_SERVERS,
         client_id="police_calls_service"
     )
