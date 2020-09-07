@@ -40,6 +40,26 @@ def run_spark_job(spark):
     # Show schema for the incoming resources for checks
     df.printSchema()
 
+    # extract the correct column from the kafka input resources
+    # Take only value and convert it to String
+    kafka_df = df.selectExpr("CAST(value AS STRING)")
+
+    service_table = kafka_df \
+        .select(psf.from_json(psf.col('value'), schema).alias("DF")) \
+        .select("DF.*")
+
+    # select original_crime_type_name and disposition
+    distinct_table = service_table \
+        .select(
+            psf.to_timestamp(
+                psf.col("call_date_time")
+            ).alias("call_date_time"),
+            psf.col("original_crime_type_name"),
+            psf.col("disposition")
+        )
+
+
+
 if __name__ == "__main__":
     logger = logging.getLogger(__name__)
 
