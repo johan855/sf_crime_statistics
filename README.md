@@ -1,4 +1,6 @@
-> Development and testing workflow (Windows):
+# SF Crime statistics
+
+## Development and testing workflow (Windows):
 
 Run Zookeeper and Kafka in separate consoles:
 >.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties 
@@ -14,17 +16,18 @@ Run the follwoing command:
 
 In my case I had to run an updated version of the spark-sql-kafka maven.
 
-**Consumer test**
-![Alt text](screenshots/consumer_test.png?raw=true "Consumer test")
+## Screenshots 
+### Consumer test
+![Consumer test](screenshots/consumer_test.png?raw=true "Consumer test")
 
 
-**Q1 Aggregation**
-![Alt text](screenshots/Q1.png?raw=true "Q1 Aggregation")
+### Q1 Aggregation
+![Q1 Aggregation](screenshots/Q1.png?raw=true "Q1 Aggregation")
 
 
-**Q1 Join**
-![Alt text](screenshots/Q2.png?raw=true "Q1 Join")
+### Q1 Join
+![Q1 Join](screenshots/Q2.png?raw=true "Q1 Join")
 
 
-**Streaming UI**
-![Alt text](screenshots/Streaming UI.png?raw=true "Streaming UI")
+### Streaming UI
+![Streaming UI](screenshots/Streaming UI.png?raw=true "Streaming UI")
