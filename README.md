@@ -39,6 +39,19 @@ How did changing values on the SparkSession property parameters affect the throu
 > Switching the maxOffsetPerTrigger to lower or higher values did not provide any important improvement or delay for the data.
 > I would compared the results of 2 sets of values on on the maxOffsetsPerTrigger property and check how the general performance is on the Streaming Query Statistics
 > output.
-> For this size of data, the higher the value I would assume the lower the latency.
+> For this size of data, the higher the value the lower the latency.
 
 What were the 2-3 most efficient SparkSession property key/value pairs? Through testing multiple variations on values, how can you tell these were the most optimal?
+> spark.sql.shuffle.partitions: 100
+> spark.default.parallelism: 20
+> spark.executor.memory: 13g  (more or less 80% of my total RAM and not on session but on the Spark configuration)
+> I noticed that after testing a few possibilities, due to the size of my working CPU, the memory property had the highest impact.
+> The key metric to determine if something is working better or not is "processedRowsPerSecond" on the progress reporter
+> and the performance of the /StreamingQuery/statistics reports on the UI. (Keeping in mind that the main thing to improve performance is first to check that the code/queries are optimized)
+
+Reference sources: 
+[Spark documentation](https://spark.apache.org/docs/latest/sql-performance-tuning.html)
+[AWS blog](https://aws.amazon.com/fr/blogs/big-data/best-practices-for-successfully-managing-memory-for-apache-spark-applications-on-amazon-emr)
+
+
+

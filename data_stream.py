@@ -45,6 +45,7 @@ def run_spark_job(spark):
         .option("subscribe", "police.calls.service") \
         .option("startingOffsets", "earliest") \
         .option("maxOffsetPerTrigger", 200) \
+        .option("parallelism", 10000) \
         .load()
 
 

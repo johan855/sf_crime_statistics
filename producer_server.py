@@ -15,8 +15,8 @@ class ProducerServer():
         self.topic = TOPIC
         self.bootstrap_servers = BOOTSTRAP_SERVERS
         self.input_file = INPUT_FILE
-        self.num_partitions = 1
-        self.replication_factor = 1
+        self.num_partitions = 4
+        self.replication_factor = 2
         self.progress_interval = 30
         self.admin_client = AdminClient({"bootstrap.servers": self.bootstrap_servers})
         self.producer = Producer({"bootstrap.servers": self.bootstrap_servers})
