@@ -2,11 +2,14 @@ from confluent_kafka import Producer, KafkaError
 from confluent_kafka.admin import AdminClient, NewTopic
 import json
 import time
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class ProducerServer():
     def __init__(self):
-        BOOTSTRAP_SERVERS = "PLAINTEXT://0.0.0.0:9092,"
+        BOOTSTRAP_SERVERS = "PLAINTEXT://DESKTOP-B2QMGU6:9092"
         INPUT_FILE = "police-department-calls-for-service.json"
         TOPIC = "police.calls.service"
         self.topic = TOPIC
@@ -33,16 +36,22 @@ class ProducerServer():
             except KafkaError as e:
                 print(f"Kafka Error {topic_item}: {e}")
 
+    # Return the json dictionary to binary
+    def dict_to_binary(self, line):
+        binary = json.dumps(line).encode("utf-8")
+        return binary
+
     # Generating a dummy data
     def generate_data(self):
         with open(self.input_file) as f:
             json_lines = json.load(f)
             for line in json_lines:
                 message = self.dict_to_binary(line)
+                logger.debug(f"dict_to_binary result message: {message}")
                 #Send the correct data
-                self.send(self.topic, message)
+                #self.send(self.topic, message)
+                self.producer.produce(self.topic, value=message)
+                #self.producer.poll(0)
                 time.sleep(1)
-    # Return the json dictionary to binary
-    def dict_to_binary(self, line):
-        binary = json.dumps(line).encode("utf-8")
-        return binary
+            logger.debug("Flushing producer")
+            self.producer.flush()

@@ -24,7 +24,7 @@ schema = StructType([
 ])
 
 def run_spark_job(spark):
-    BOOTSTRAP_SERVERS = "PLAINTEXT://localhost:9092"
+    BOOTSTRAP_SERVERS = "PLAINTEXT://DESKTOP-B2QMGU6:9092"
     # Create Spark Configuration
     # Create Spark configurations with max offset of 200 per trigger
     # set up correct bootstrap server and port
