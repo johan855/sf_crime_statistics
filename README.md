@@ -18,16 +18,16 @@ In my case I had to run an updated version of the spark-sql-kafka maven.
 
 ## Screenshots 
 ### Consumer test
-![Consumer test](/screenshots/consumer_test.png?raw=true "Consumer test")
+![Consumer test](https://github.com/johan855/sf_crime_statistics/blob/master/screenshots/consumer_test.png?raw=true "Consumer test")
 
 
 ### Q1 Aggregation
-![Q1 Aggregation](/screenshots/Q1.png?raw=true "Q1 Aggregation")
+![Q1 Aggregation](https://github.com/johan855/sf_crime_statistics/blob/master/screenshots/Q1.png?raw=true "Q1 Aggregation")
 
 
 ### Q1 Join
-![Q1 Join](/screenshots/Q2.png?raw=true "Q1 Join")
+![Q1 Join](https://github.com/johan855/sf_crime_statistics/blob/master/screenshots/Q2.png?raw=true "Q1 Join")
 
 
 ### Streaming UI
-![Streaming UI](/screenshots/Streaming UI.png?raw=true "Streaming UI")
+![Streaming UI](https://github.com/johan855/sf_crime_statistics/blob/master/screenshots/Streaming_UI.png?raw=true "Streaming UI")
