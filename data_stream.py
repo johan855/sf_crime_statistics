@@ -2,6 +2,7 @@ import logging
 import json
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
+from pyspark import SparkConf, SparkContext
 import pyspark.sql.functions as psf
 
 
@@ -46,6 +47,8 @@ def run_spark_job(spark):
         .option("maxOffsetPerTrigger", 200) \
         .load()
 
+    print(SparkConf().getAll())
+
     # Show schema for the incoming resources for checks
     df.printSchema()
 
@@ -56,8 +59,8 @@ def run_spark_job(spark):
     service_table = kafka_df.select(
         psf.from_json(
                   kafka_df.value,
-                  schema).alias("DF")
-            ).select("DF.*")
+                  schema).alias("main_df")
+            ).select("main_df.*")
 
     # select original_crime_type_name and disposition
     distinct_table = service_table \

@@ -31,3 +31,14 @@ In my case I had to run an updated version of the spark-sql-kafka maven.
 
 ### Streaming UI
 ![Streaming UI](https://github.com/johan855/sf_crime_statistics/blob/master/screenshots/Streaming_UI.png?raw=true "Streaming UI")
+
+
+
+How did changing values on the SparkSession property parameters affect the throughput and latency of the data?
+> Due to the size of the dataset, changing the session's parameters didn't have much effect.
+> Switching the maxOffsetPerTrigger to lower or higher values did not provide any important improvement or delay for the data.
+> I would compared the results of 2 sets of values on on the maxOffsetsPerTrigger property and check how the general performance is on the Streaming Query Statistics
+> output.
+> For this size of data, the higher the value I would assume the lower the latency.
+
+What were the 2-3 most efficient SparkSession property key/value pairs? Through testing multiple variations on values, how can you tell these were the most optimal?
