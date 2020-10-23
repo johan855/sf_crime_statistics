@@ -47,7 +47,7 @@ class ProducerServer():
             json_lines = json.load(f)
             for line in json_lines:
                 message = self.dict_to_binary(line)
-                logger.debug(f"dict_to_binary result message: {message}")
+                logger.info(f"dict_to_binary result message: {message}")
                 #Send the correct data
                 #self.send(self.topic, message)
                 self.producer.produce(self.topic, value=message)
