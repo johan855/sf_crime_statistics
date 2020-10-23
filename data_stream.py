@@ -47,7 +47,7 @@ def run_spark_job(spark):
         .option("maxOffsetPerTrigger", 200) \
         .load()
 
-    print(SparkConf().getAll())
+
 
     # Show schema for the incoming resources for checks
     df.printSchema()
@@ -120,6 +120,7 @@ if __name__ == "__main__":
         .config("spark.ui.port", 4040) \
         .appName("KafkaSparkStructuredStreaming") \
         .getOrCreate()
+    print(SparkConf().getAll())
 
     logger.info("Spark started")
 
