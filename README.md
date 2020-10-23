@@ -14,10 +14,17 @@ Run the follwoing command:
 
 In my case I had to run an updated version of the spark-sql-kafka maven.
 
-![Alt text](/screenshots/consumer_test.png?raw=true "Consumer test")
+**Consumer test**
+![Alt text](screenshots/consumer_test.png?raw=true "Consumer test")
 
-![Alt text](/screenshots/Q1.png?raw=true "Q1 Aggregation")
 
-![Alt text](/screenshots/Q2.png?raw=true "Q1 Joine")
+**Q1 Aggregation**
+![Alt text](screenshots/Q1.png?raw=true "Q1 Aggregation")
 
-![Alt text](/screenshots/Streaming UI.png?raw=true "Streaming UI")
+
+**Q1 Join**
+![Alt text](screenshots/Q2.png?raw=true "Q1 Join")
+
+
+**Streaming UI**
+![Alt text](screenshots/Streaming UI.png?raw=true "Streaming UI")
